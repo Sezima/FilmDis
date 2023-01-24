@@ -22,7 +22,7 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from rest_framework.routers import DefaultRouter
 
-from main.views import FilmViewSet, GenreViewSet
+from main.views import FilmViewSet, GenreViewSet, Search
 
 router = DefaultRouter()
 router.register('Film', FilmViewSet)
@@ -45,5 +45,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', schema_view.with_ui()),
     path('api/v1/', include(router.urls)),
+    path('api/v1/search/', Search.as_view()),
 
 ]
