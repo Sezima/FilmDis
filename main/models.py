@@ -19,10 +19,14 @@ class Film(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, related_name='genre', blank=True, null=True)
     year = models.IntegerField(blank=True, null=True);
     description = models.TextField(blank=True, null=True)
+    like = models.BooleanField(blank=True, null=True)
+
 
 
     def __str__(self):
         self.title
+
+
 
 
 

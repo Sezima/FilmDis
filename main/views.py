@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from rest_framework import generics, viewsets
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import AllowAny
@@ -12,6 +13,11 @@ from django_filters.rest_framework import  DjangoFilterBackend
 
 # Create your views here.
 
+def index(request):
+    return render(request, 'index.html', {})
+
+def mypage(request):
+    return render(request, 'general.html', {})
 
 
 class GenreViewSet(viewsets.ModelViewSet):
@@ -19,6 +25,7 @@ class GenreViewSet(viewsets.ModelViewSet):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializers
     permission_classes = [AllowAny, ]
+
 
 
 class FilmViewSet(viewsets.ModelViewSet):
